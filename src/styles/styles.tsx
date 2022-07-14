@@ -5,6 +5,8 @@ export default createGlobalStyle`
         margin: 0;
         padding:0;
         box-sizing: border-box;
+        background-color :#191E29 ;
+        color: #fff ;
     }
     html, body, #root{
         height: 100%;
