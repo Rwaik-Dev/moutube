@@ -1,16 +1,31 @@
 import styled from "styled-components";
+import px2vw from "../../Utils/px2vw";
 
 export const Container = styled.div`
-  width: 100%;
-  height: 600px;
+  width: ${px2vw(1380)};
+  height: ${px2vw(530)};
   display: flex;
+
+  /* Responsividade */
+  @media (max-width: 425px) {
+    height: ${px2vw(900)};
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: ${px2vw(100)};
+  }
 `;
 export const BoxImage = styled.div`
-  width: 70%;
+  width: ${px2vw(950)};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1em 2em;
+  padding: ${px2vw(16)} ${px2vw(32)};
+
+  /* Responsividade */
+  @media (max-width: 425px) {
+    width: ${px2vw(1050)};
+    padding: ${px2vw(16)} ${px2vw(16)};
+  }
 `;
 
 export const ImageGame = styled.img`
@@ -21,7 +36,14 @@ export const ImageGame = styled.img`
 export const BoxCards = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30%;
-  padding: 1em 0;
+  width: ${px2vw(450)};
   align-items: center;
+
+  /* Responsividade */
+  @media (max-width: 425px) {
+    flex-direction: row;
+    width: ${px2vw(1370)};
+    justify-content: center;
+    height: ${px2vw(350)};
+  }
 `;

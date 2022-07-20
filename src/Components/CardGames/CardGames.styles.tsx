@@ -8,9 +8,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 ${px2vw(12)};
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 
   .gameName {
     width: 100%;
@@ -21,12 +18,30 @@ export const Container = styled.div`
     text-overflow: ellipsis;
     overflow: hidden;
   }
+
+  /* Responsividade */
+  @media (max-width: 425px) {
+    height: ${px2vw(540)};
+    width: ${px2vw(460)};
+    margin: ${px2vw(5)} ${px2vw(15)};
+
+    .gameName {
+      height: ${px2vw(40)};
+      font-size: ${px2vw(30)};
+    }
+  }
 `;
 
 export const ImageBox = styled.div`
-  width: 100%;
   height: ${px2vw(250)};
-  
+  img {
+    width: 100%;
+  }
+
+  /* Responsividade */
+  @media (max-width: 425px) {
+    height: ${px2vw(440)};
+  }
 `;
 export const Prices = styled.div`
   width: 100%;
@@ -35,13 +50,21 @@ export const Prices = styled.div`
   align-items: center;
   justify-content: space-around;
 
-  .infoPrices{
-    font-size: ${px2vw(19)} ;
+  .infoPrices {
+    font-size: ${px2vw(19)};
+  }
+
+  /* Responsividade */
+  @media (max-width: 425px) {
+    height: ${px2vw(40)};
+    .infoPrices {
+      font-size: ${px2vw(30)};
+    }
   }
 
   #discount {
     background-color: #01c38d;
-    border-radius: 7px;
+    border-radius: 3px;
     font-weight: bold;
     padding: ${px2vw(5)};
   }

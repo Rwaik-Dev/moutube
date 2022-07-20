@@ -18,10 +18,10 @@ const CardDetailGame: React.FC<IPropsCardDetailGame> = ({
     <Container>
       <img src={imageGame} alt="Imagem do Game" id="imageGame" width={"100%"} />
       <div id="description">
-        <p id="gameName">{gameName}</p>
+        <h4 id="gameName">{gameName}</h4>
         <p id="gameDescription">{descriptionGame}</p>
       </div>
-      <p id="currentPrice">R$ {currentPrice}</p>
+      <h4 id="currentPrice">R$ {currentPrice}</h4>
     </Container>
   );
 };

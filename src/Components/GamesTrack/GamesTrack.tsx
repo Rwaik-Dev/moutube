@@ -13,7 +13,7 @@ const GamesTrack: React.FC = () => {
       />
       <CardDetailGame
         currentPrice="149,00"
-        descriptionGame="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto quas laboriosam minima laudantium nisi. Commodi, libero? Autem animi architecto, libero facere assumenda eum obcaecati vero."
+        descriptionGame="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto quas laboriosam minima laudantium nisi. Commodi, libero? Autem animi architecto, libero facereaa"
         gameName="Sniper Elite 5"
         imageGame="https://image.api.playstation.com/vulcan/ap/rnd/202202/2116/59jHCjMBRhuRhPUKUUy2gkNd.png"
       />

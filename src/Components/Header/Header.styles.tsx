@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import px2vw from "../../Utils/px2vw";
 
 export const Container = styled.div`
   width: 100%;
-  background-color: #191e29;
-  height: 60px;
+  height: ${px2vw(60)};
+  text-align: center ;
 `;

@@ -16,7 +16,6 @@ const CardGames: React.FC<IPropsCardGames> = ({urlImage, gameName, discount, las
         <img
           src={urlImage}
           alt="Imagem do Jogo"
-          width="100%"
         />
       </ImageBox>
       <p className="gameName">{gameName}</p>
