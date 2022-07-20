@@ -5,11 +5,11 @@ import { BoxHead, Container } from "./PromotionsCard.styles";
 const PromotionsCard: React.FC = () => {
   return (
     <Container>
-      <>
-        <a href="http://" className="promotionsGames">
+      <div className="promotionsGames">
+        <a href="http://" >
           Jogos em promoção
         </a>
-      </>
+      </div>
       <BoxHead>
         <CardGames
           urlImage="https://image.api.playstation.com/cdn/UP0001/CUSA05855_00/8V1jOJ0Nm8UbF6bsZOGIwFjAmAODJ0pG.png"

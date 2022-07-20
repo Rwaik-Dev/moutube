@@ -1,12 +1,12 @@
 import styled from "styled-components";
+import px2vw from "../../Utils/px2vw";
 
 export const Container = styled.div`
   width: 100%;
-  margin-top: 2em;
-  height: 25em;
-  .promotionsGames {
+  margin-top: ${px2vw(32)};
+  height: ${px2vw(400)};
+  a{
     text-decoration: none;
-    font-size: 1.3em;
     :hover {
       transition: all 0.3s;
       color: #01c38d;
@@ -15,8 +15,7 @@ export const Container = styled.div`
 `;
 
 export const BoxHead = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 1em ;
+  height: ${px2vw(370)} ;
+  margin-top: ${px2vw(10)};
   display: flex ;
 `;

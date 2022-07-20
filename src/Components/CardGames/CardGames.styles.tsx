@@ -1,22 +1,21 @@
 import styled from "styled-components";
+import px2vw from "../../Utils/px2vw";
 
 export const Container = styled.div`
-  width: 18%;
-  height: 100%;
+  width: ${px2vw(420)};
+  height: ${px2vw(330)};
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin: 0 1em;
+  margin: 0 ${px2vw(12)};
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 
   .gameName {
     width: 100%;
-    height: 10%;
-    font-size: 1.3em;
-    padding-top: 0.3em;
+    height: ${px2vw(25)};
+    font-size: ${px2vw(20)};
     text-align: center;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -26,23 +25,25 @@ export const Container = styled.div`
 
 export const ImageBox = styled.div`
   width: 100%;
-  height: 80%;
+  height: ${px2vw(250)};
+  
 `;
 export const Prices = styled.div`
-  width: 80%;
-  height: 10%;
+  width: 100%;
+  height: ${px2vw(50)};
   display: flex;
   align-items: center;
   justify-content: space-around;
 
-  .infoPrices {
-    font-size: 1.2em;
+  .infoPrices{
+    font-size: ${px2vw(19)} ;
   }
+
   #discount {
     background-color: #01c38d;
-    border-radius: 5px;
+    border-radius: 7px;
     font-weight: bold;
-    padding: 0.2em;
+    padding: ${px2vw(5)};
   }
   #lastPrice {
     text-decoration: line-through;

@@ -16,7 +16,12 @@ const CardFreeGame: React.FC<IPropsCardFreeGame> = ({
 }) => {
   let condition = "";
 
- {iconFree === "GRÁTIS" ? condition = "#01C38D" : condition = "#132D47"}
+  if (iconFree === "GRÁTIS") {
+    condition = "#01C38D";
+  } else {
+    condition = "#132D47";
+  }
+
   return (
     <Container backgroundColor={condition}>
       <img

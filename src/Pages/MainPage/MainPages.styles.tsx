@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import px2vw from "../../Utils/px2vw";
 
 export const Container = styled.div`
     width: 100%;
@@ -6,6 +7,6 @@ export const Container = styled.div`
 `;
 
 export const Display = styled.div`
-    padding: 0 3em ;
+    padding: 0 ${px2vw(48)} ;
 
 `;
