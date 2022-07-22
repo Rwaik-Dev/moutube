@@ -14,7 +14,7 @@ const GamesInfo: React.FC<IPropsGamesInfo> = ({
 }) => {
   return (
     <Container>
-      <img src={imageUrl} alt="" width={"100%"} className="imageUrl" />
+      <img src={imageUrl} alt=""  className="imageUrl" />
       <div className="informations">
         <h5 className="gameName">{gameName}</h5>
         <p className="informationGame">{information}</p>

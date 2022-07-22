@@ -7,9 +7,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: ${px2vw(16)};
-    border: red 1px solid;
-
-
   :hover {
     transition: all 0.8s;
     background-color: #696e799b;
@@ -22,18 +19,18 @@ export const Container = styled.div`
   }
   #description {
     height: ${px2vw(160)};
-    width: ${px2vw(370)} ;
-    display: flex ;
+    width: ${px2vw(370)};
+    display: flex;
     flex-direction: column;
-    align-items:center ;
+    align-items: center;
     background: none;
-    padding: 0 ${px2vw()} ;
+    padding: 0 ${px2vw()};
   }
   #gameName {
     height: ${px2vw(30)};
-    width: ${px2vw(350)} ;
-    display: flex ;
-    align-items: center ;
+    width: ${px2vw(350)};
+    display: flex;
+    align-items: center;
     font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
@@ -42,8 +39,8 @@ export const Container = styled.div`
   }
   #gameDescription {
     height: ${px2vw(130)};
-    width: ${px2vw(360)} ;
-    text-size-adjust:100%;
+    width: ${px2vw(360)};
+    text-size-adjust: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     background: none;
@@ -52,33 +49,30 @@ export const Container = styled.div`
     height: ${px2vw(25)};
     padding-left: ${px2vw(10)};
     background: none;
-    border:  1px solid;
   }
-/* 
+  /* 
   Pc : 200 caracteres
   Mobile: 85 Caracteres
 */
   @media (max-width: 425px) {
     height: ${px2vw(490)};
-    #imageGame{
-      height: ${px2vw(300)} ;
+    #imageGame {
+      height: ${px2vw(250)};
     }
-    #description{
-      height: ${px2vw(130)} ;
+    #description {
+      height: ${px2vw(180)};
 
-      #gameName{
-        height: ${px2vw()} ;
-
+      #gameName {
+        height: ${px2vw(40)};
       }
-      #gameDescription{
-        height: ${px2vw()} ;
-
+      #gameDescription {
+        height: ${px2vw(124)};
       }
     }
-    #currentPrice{
-      height: ${px2vw(60)} ;
-
-
+    #currentPrice {
+      height: ${px2vw(60)};
+      align-items: center;
+      padding-top: ${px2vw(10)};
     }
   }
 `;

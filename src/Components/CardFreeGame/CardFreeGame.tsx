@@ -3,7 +3,7 @@ import { Container } from "./CardFreeGame.styles";
 
 interface IPropsCardFreeGame {
   imageGame: string;
-  iconFree: string;
+  iconFree: string ;
   gameName: string;
   infoPrice: string;
 }
