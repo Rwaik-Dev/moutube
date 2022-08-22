@@ -1,12 +1,22 @@
-import React from 'react'
-import { Container } from './DetailGame.style'
+import React from "react";
+import { Container, Content } from "./DetailGame.style";
+import PageGame from "../../Components/PageGame/PageGame";
+import GlobalStyles from "../../styles/styles";
+import Header from "../../Components/Header/Header";
 
-const DetailGame:React.FC = () => {
+
+const DetailGame: React.FC = () => {
   return (
-    <Container>
-        <h1>Teste Detalhes de jogos Phodas</h1>
-    </Container>
-  )
-}
+    <>
+    <GlobalStyles/>
+      <Container>
+        <Header/>
+        <Content>
+          <PageGame/>
+        </Content>
+      </Container>
+    </>
+  );
+};
 
-export default DetailGame
+export default DetailGame;
