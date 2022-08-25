@@ -6,18 +6,21 @@ const GamesTrack: React.FC = () => {
   return (
     <Container>
       <CardDetailGame
+        slugGame="crash-bandicoot-4-its-about-time"
         currentPrice="220,00"
         descriptionGame="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto quas laboriosam minima laudantium nisi. Commodi, libero? Autem animi architecto, libero facere assumenda eum obcaecati vero. Dicta iure tempore quae hic!"
         gameName="Crash Bandicoot 4: It's About Time"
         imageGame="https://image.api.playstation.com/vulcan/ap/rnd/202102/2418/nOYZabSx4faHIlurfiUC0HVl.jpg"
       />
       <CardDetailGame
+        slugGame="sniper-elite-5"
         currentPrice="149,00"
         descriptionGame="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto quas laboriosam minima laudantium nisi. Commodi, libero? Autem animi architecto, libero facereaa"
         gameName="Sniper Elite 5"
         imageGame="https://image.api.playstation.com/vulcan/ap/rnd/202202/2116/59jHCjMBRhuRhPUKUUy2gkNd.png"
       />
       <CardDetailGame
+        slugGame="left-4-dead-2"
         currentPrice="24,90"
         descriptionGame="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto quas laboriosam minima laudantium nisi. Commodi, libero? Autem animi architecto, libero facere assumenda eum obcaecati vero."
         gameName="Left 4 Dead 2"

@@ -9,9 +9,9 @@ let games = [
     plataforma: "Xbox, Windows",
 
     UrlImageLogo:
-      "https://store-images.s-microsoft.com/image/apps.16695.14150134713361479.615a9379-1995-470a-85bc-b8a5e50461b0.b7c50bac-287c-40e4-b43f-7dbac543b3c3?q=90&w=480&h=270",
+      "https://cdn2.unrealengine.com/en-bungie-destiny2-ic1-400x400-400x400-428671b4082f.png?h=270&resize=1&w=480",
     UrlImageCarrossel1:
-      "https://store-images.s-microsoft.com/image/apps.16695.14150134713361479.615a9379-1995-470a-85bc-b8a5e50461b0.b7c50bac-287c-40e4-b43f-7dbac543b3c3?q=90&w=480&h=270",
+      "https://cdn2.unrealengine.com/screenshot-02-1920x1080-51c75098fdac.jpg",
     UrlImageCarrossel2:
       "https://cdn.cloudflare.steamstatic.com/steam/apps/1085660/ss_7fcc82f468fcf8278c7ffa95cebf949bfc6845fc.1920x1080.jpg?t=1657835870",
     UrlImageCarrossel3:
@@ -1629,3 +1629,7 @@ let games = [
     },
   },
 ];
+
+export function getGames(reqGameId) {
+  return games.find((game) => game.gameId === reqGameId);
+}

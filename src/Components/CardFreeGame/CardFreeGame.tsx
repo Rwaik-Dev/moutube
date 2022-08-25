@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container } from "./CardFreeGame.styles";
 
 interface IPropsCardFreeGame {
@@ -6,6 +7,7 @@ interface IPropsCardFreeGame {
   iconFree: string ;
   gameName: string;
   infoPrice: string;
+  slugGame: string;
 }
 
 const CardFreeGame: React.FC<IPropsCardFreeGame> = ({
@@ -13,6 +15,7 @@ const CardFreeGame: React.FC<IPropsCardFreeGame> = ({
   iconFree,
   gameName,
   infoPrice,
+  slugGame
 }) => {
   let condition = "";
 
@@ -24,6 +27,7 @@ const CardFreeGame: React.FC<IPropsCardFreeGame> = ({
 
   return (
     <Container backgroundColor={condition}>
+      <Link to={`detail-game/`+slugGame} key={slugGame}>
       <img
         src={imageGame}
         alt=""
@@ -34,6 +38,7 @@ const CardFreeGame: React.FC<IPropsCardFreeGame> = ({
       <p className="iconFree">{iconFree}</p>
       <p className="gameName">{gameName}</p>
       <p className="infoPrice">{infoPrice}</p>
+      </Link>
     </Container>
   );
 };

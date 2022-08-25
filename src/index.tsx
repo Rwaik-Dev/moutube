@@ -12,7 +12,9 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}/>
-        <Route path="detail-game" element={<DetailGame/>} />
+        <Route path="detail-game/:gameId" element={<DetailGame/>}>
+          <Route path="" element={<NotFound/>}/>
+        </Route>
         <Route path="*" element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>

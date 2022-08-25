@@ -2,13 +2,13 @@ import React from "react";
 import { Container } from "./Requirements.style";
 
 interface IRequirementsProps {
-  title: string;
-  So: string;
-  processador: string;
-  memory: string;
-  storage: string;
-  directX: string;
-  videoCard: string;
+  title: string | undefined;
+  So: string | undefined;
+  processador: string | undefined;
+  memory: string | undefined;
+  storage: string | undefined;
+  directX: string | undefined;
+  videoCard: string | undefined;
 }
 
 const Requirements: React.FC<IRequirementsProps> = ({

@@ -6,7 +6,7 @@ const PromotionsCard: React.FC = () => {
   return (
     <Container>
       <div className="promotionsGames">
-        <a href="http://" >
+        <a href="/" >
           Jogos em promoção
         </a>
       </div>
@@ -17,6 +17,7 @@ const PromotionsCard: React.FC = () => {
           discount={50}
           lastPrice="199,00"
           currentPrice="99,00"
+          slugGame="assassins-creed-origins"
         />
         <CardGames
           urlImage="https://image.api.playstation.com/vulcan/ap/rnd/202105/1919/TQPQtelumFuvM4njKGjgJHQP.png"
@@ -24,6 +25,7 @@ const PromotionsCard: React.FC = () => {
           discount={60}
           lastPrice="220,00"
           currentPrice="88,00"
+          slugGame="rainbow-six-extraction"
         />
         <CardGames
           urlImage="https://image.api.playstation.com/vulcan/img/rnd/202010/0818/HVUPJTyjOslwxbwCC8edPC45.png"
@@ -31,6 +33,7 @@ const PromotionsCard: React.FC = () => {
           discount={30}
           lastPrice="80,00"
           currentPrice="56,00"
+          slugGame="ark"
         />
         <CardGames
           urlImage="https://assets-prd.ignimgs.com/2022/05/17/downhill-domination-button-1652747391683.jpg"
@@ -38,6 +41,7 @@ const PromotionsCard: React.FC = () => {
           discount={80}
           lastPrice="25,00"
           currentPrice="5,00"
+          slugGame="downhill-domination"
         />
         <CardGames
           urlImage="https://image.api.playstation.com/cdn/UP0001/CUSA04459_00/KVnEezbiQaL59eySNXBB1csp9OyhMyjB.png"
@@ -45,6 +49,7 @@ const PromotionsCard: React.FC = () => {
           discount={70}
           lastPrice="150,00"
           currentPrice="45,00"
+          slugGame="watch-dogs-2"
         />
       </BoxHead>
     </Container>

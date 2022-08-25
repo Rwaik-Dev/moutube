@@ -3,7 +3,7 @@ import { Container } from "./RatingStars.styles";
 import { ImStarEmpty, ImStarHalf, ImStarFull } from "react-icons/im";
 
 interface IRatingStarsProps {
-  rating: string;
+  rating: string | undefined;
 }
 
 const RatingStars: React.FC<IRatingStarsProps> = ({ rating }) => {

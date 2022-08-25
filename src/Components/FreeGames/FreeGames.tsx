@@ -8,24 +8,28 @@ const FreeGames: React.FC = () => {
       <h5>Jogos Gratis</h5>
       <Box>
         <CardFreeGame
+          slugGame="red-dead-redemption-2"
           imageGame="https://image.api.playstation.com/cdn/UP1004/CUSA03041_00/3zDubiWo2X5WU18FGiwlsf4lKWb8MwkE.png"
           iconFree="GRÁTIS"
           gameName="Red Dead Redemption - Ultimate Edition"
           infoPrice="Grátis - 21 de jul. às 12:00"
         />
         <CardFreeGame
+          slugGame="mortal-kombat-11"
           imageGame="https://image.api.playstation.com/vulcan/ap/rnd/202011/0319/rdNblnyGXx8EEyqA2u5GJBmB.png"
           iconFree="GRÁTIS"
           gameName="Mortal Kombat 11 - Ultimate Bundle"
           infoPrice="Grátis - 21 de jul. às 12:00"
         />
         <CardFreeGame
+          slugGame="battlefield-4"
           imageGame="https://image.api.playstation.com/cdn/UP0006/CUSA00110_00/D8Gbgtnu0ZvmVs8VloyLb0Sm9tW0wpKh.png"
           iconFree="EM BREVE"
           gameName="Battlefield 4 - Premium Edition"
           infoPrice="Grátis 21 de jul. - 28 de jul."
         />
         <CardFreeGame
+          slugGame="hitman-3--trilogy-premium-add-ons-bundle"
           imageGame="https://image.api.playstation.com/vulcan/ap/rnd/202112/0913/5xXGYslR0YU0bXGSCKbUrEvL.png"
           iconFree="EM BREVE"
           gameName="Hitman Trilogy - Premium Add-ons"

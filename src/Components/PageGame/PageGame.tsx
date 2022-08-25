@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import RatingStars from "../RatingStars/RatingStars";
 import Requirements from "../Requirements/Requirements";
+import {getGames} from "../../Utils/data"
+import { useParams } from "react-router-dom";
 import {
   Container,
   GameContent,
@@ -18,104 +20,94 @@ import {
 } from "./PageGame.styles";
 
 const PageGame: React.FC = () => {
+  
+  let params = useParams()
+  let listGame = getGames(params.gameId);
+  
   const [sourceImage, setSourceImage] = useState(
-    "https://store-images.s-microsoft.com/image/apps.16695.14150134713361479.615a9379-1995-470a-85bc-b8a5e50461b0.b7c50bac-287c-40e4-b43f-7dbac543b3c3?q=90&w=480&h=270"
+    listGame?.UrlImageCarrossel1
   );
-
+  
   return (
     <Container>
       <GameContent>
-        <h1>Destiny 2</h1>
+        <h1>{listGame?.gameName}</h1>
       </GameContent>
       <MediaGame>
         <ImageCarrossel>
-          <img src={sourceImage} alt="Destiny 2" />
+          <img src={sourceImage} alt={listGame?.gameName} />
           <DivImages>
             <div>
               <img
-                src="https://store-images.s-microsoft.com/image/apps.16695.14150134713361479.615a9379-1995-470a-85bc-b8a5e50461b0.b7c50bac-287c-40e4-b43f-7dbac543b3c3?q=90&w=480&h=270"
+                src={listGame?.UrlImageCarrossel1}
+                alt="Logo Game"
+                onClick={() => {
+                  setSourceImage(listGame?.UrlImageCarrossel1);
+                }}
+              />
+            </div>
+            <div>
+              <img
+                src={listGame?.UrlImageCarrossel2}
+                alt="Logo Game"
+                onClick={() => {
+                  setSourceImage(listGame?.UrlImageCarrossel2);
+                }}
+              />
+            </div>
+            <div>
+              <img
+                src={listGame?.UrlImageCarrossel3}
+                alt="Logo Game"
+                onClick={() => {
+                  setSourceImage(listGame?.UrlImageCarrossel3);
+                }}
+              />
+            </div>
+            <div>
+              <img
+                src={listGame?.UrlImageCarrossel4}
                 alt="Logo Game"
                 onClick={() => {
                   setSourceImage(
-                    "https://store-images.s-microsoft.com/image/apps.16695.14150134713361479.615a9379-1995-470a-85bc-b8a5e50461b0.b7c50bac-287c-40e4-b43f-7dbac543b3c3?q=90&w=480&h=270"
+                    listGame?.UrlImageCarrossel4
                   );
                 }}
               />
             </div>
             <div>
               <img
-                src="https://cdn.cloudflare.steamstatic.com/steam/apps/1085660/ss_7fcc82f468fcf8278c7ffa95cebf949bfc6845fc.1920x1080.jpg?t=1657835870"
+                src={listGame?.UrlImageCarrossel5}
                 alt="Logo Game"
                 onClick={() => {
-                  setSourceImage(
-                    "https://cdn.cloudflare.steamstatic.com/steam/apps/1085660/ss_7fcc82f468fcf8278c7ffa95cebf949bfc6845fc.1920x1080.jpg?t=1657835870"
-                  );
+                  setSourceImage(listGame?.UrlImageCarrossel5);
                 }}
               />
             </div>
             <div>
               <img
-                src="https://cdn.cloudflare.steamstatic.com/steam/apps/1085660/ss_a35aaa73e605c0738a53a74abbcb53768e8f39e1.1920x1080.jpg?t=1657835870"
+                src={listGame?.UrlImageCarrossel6}
                 alt="Logo Game"
                 onClick={() => {
-                  setSourceImage(
-                    "https://cdn.cloudflare.steamstatic.com/steam/apps/1085660/ss_a35aaa73e605c0738a53a74abbcb53768e8f39e1.1920x1080.jpg?t=1657835870"
-                  );
+                  setSourceImage(listGame?.UrlImageCarrossel6);
                 }}
               />
             </div>
             <div>
               <img
-                src="https://mundodrix.com.br/site/wp-content/uploads/2021/04/Destiny-2-Jogos-dos-Guardi%C3%B5es-2021-3.jpg"
+                src={listGame?.UrlImageCarrossel7}
                 alt="Logo Game"
                 onClick={() => {
-                  setSourceImage(
-                    "https://mundodrix.com.br/site/wp-content/uploads/2021/04/Destiny-2-Jogos-dos-Guardi%C3%B5es-2021-3.jpg"
-                  );
+                  setSourceImage(listGame?.UrlImageCarrossel7);
                 }}
               />
             </div>
             <div>
               <img
-                src="https://files.tecnoblog.net/wp-content/uploads/2021/08/destiny-2-2.jpg"
+                src={listGame?.UrlImageCarrossel8}
                 alt="Logo Game"
                 onClick={() => {
-                  setSourceImage(
-                    "https://files.tecnoblog.net/wp-content/uploads/2021/08/destiny-2-2.jpg"
-                  );
-                }}
-              />
-            </div>
-            <div>
-              <img
-                src="https://gmedia.playstation.com/is/image/SIEPDC/Destiny-2-screen-03-en-30sep21?$native$"
-                alt="Logo Game"
-                onClick={() => {
-                  setSourceImage(
-                    "https://gmedia.playstation.com/is/image/SIEPDC/Destiny-2-screen-03-en-30sep21?$native$"
-                  );
-                }}
-              />
-            </div>
-            <div>
-              <img
-                src="https://xboxplay.games/uploadStream/20456.jpg"
-                alt="Logo Game"
-                onClick={() => {
-                  setSourceImage(
-                    "https://xboxplay.games/uploadStream/20456.jpg"
-                  );
-                }}
-              />
-            </div>
-            <div>
-              <img
-                src="https://www.ultimaficha.com.br/wp-content/uploads/2022/02/the-witch-queen.jpeg"
-                alt="Logo Game"
-                onClick={() => {
-                  setSourceImage(
-                    "https://www.ultimaficha.com.br/wp-content/uploads/2022/02/the-witch-queen.jpeg"
-                  );
+                  setSourceImage(listGame?.UrlImageCarrossel8);
                 }}
               />
             </div>
@@ -124,8 +116,9 @@ const PageGame: React.FC = () => {
         <GameInfo>
           <Divisor>
             <img
-              src="https://store-images.s-microsoft.com/image/apps.16695.14150134713361479.615a9379-1995-470a-85bc-b8a5e50461b0.b7c50bac-287c-40e4-b43f-7dbac543b3c3?q=90&w=480&h=270"
-              alt="Logo Game"
+              src={listGame?.UrlImageLogo}
+              alt={`Logo do jogo `+ listGame?.gameName}
+              width="100%" 
             />
             <h4>Gratuito</h4>
             <button className="actionButton">Comprar</button>
@@ -137,23 +130,23 @@ const PageGame: React.FC = () => {
           <Informations>
             <div className="informationDivStyle">
               <p className="pTitle">Desenvolvedor</p>{" "}
-              <p className="pStyles">Bungie</p>
+              <p className="pStyles">{listGame?.desenvolvedor}</p>
             </div>
             <div className="informationDivStyle">
               <p className="pTitle">Editora</p>{" "}
-              <p className="pStyles">Bungie</p>
+              <p className="pStyles">{listGame?.editora}</p>
             </div>
             <div className="informationDivStyle">
               <p className="pTitle">Data de Lançamento</p>{" "}
-              <p className="pStyles">06/09/2017</p>
+              <p className="pStyles">{listGame?.dataLancamento}</p>
             </div>
             <div className="informationDivStyle">
               <p className="pTitle">Lançamento inicial</p>{" "}
-              <p className="pStyles">28/08/2017</p>
+              <p className="pStyles">{listGame?.lancamentoInicial}</p>
             </div>
             <div className="informationDivStyle">
               <p className="pTitle">Plataforma</p>{" "}
-              <p className="pStyles">Xbox</p>
+              <p className="pStyles">{listGame?.plataforma}</p>
             </div>
           </Informations>
         </GameInfo>
@@ -161,16 +154,10 @@ const PageGame: React.FC = () => {
         <DetailGameInformation>
           <h4>Descrição</h4>
           <p>
-            Mergulhe no mundo de Destiny 2 para explorar os mistérios do sistema
-            solar e vivenciar combates de tiro em primeira pessoa. Libere
-            poderosas habilidades elementares, colecione equipamentos singulares
-            para personalizar o visual e estilo de jogo do seu Guardião.
-            Vivencie a história cinematográfica de Destiny 2, missões
-            cooperativas desafiadoras, e competições em diversos modos PvP, só
-            ou com amigos. Baixe gratuitamente e escreva sua lenda nas estrelas.
+            {listGame?.descricao}
           </p>
           <GameRating>
-            <RatingStars rating="4.5" />
+            <RatingStars rating={listGame?.classificacao} />
             <small className="positionGroup">
               *Classificação dos jogadores da MouTube
             </small>
@@ -182,8 +169,8 @@ const PageGame: React.FC = () => {
                 <h3>Windows</h3>
               </div>
               <Require>
-                <Requirements title="Minimo" So="Windows 10 de 64 bits" processador="Intel Core i3-4160 ou AMD equivalente" memory="8" storage="75" directX="12" videoCard="NVIDIA GTX 950 ou AMD Radeon RX 470"/>
-                <Requirements title="Recomendado" So="Windows 10 de 64 bits" processador="Intel Core i5-8160 ou AMD equivalente" memory="16" storage="100" directX="12" videoCard="	NVIDIA® GeForce® GTX 970 4GB or GTX 1060 6GB ou AMD R9 390 8GB Memory 8 GB RAM"/>
+                <Requirements title="Minimo" So={listGame?.especificacoes.minimo.sistemaOperacional} processador={listGame?.especificacoes.minimo.processador} memory={listGame?.especificacoes.minimo.memoria} storage={listGame?.especificacoes.minimo.armazenamento} directX={listGame?.especificacoes.minimo.directX} videoCard={listGame?.especificacoes.minimo.placaDeVideo}/>
+                <Requirements title="Recomendado" So={listGame?.especificacoes.recomendado.sistemaOperacional} processador={listGame?.especificacoes.recomendado.processador} memory={listGame?.especificacoes.recomendado.memoria} storage={listGame?.especificacoes.recomendado.armazenamento} directX={listGame?.especificacoes.recomendado.directX} videoCard={listGame?.especificacoes.recomendado.placaDeVideo}/>
               </Require>
             </SpeceficationBox>
           </GameEspecifications>

@@ -35,6 +35,7 @@ export const Container = styled.div`
 export const ImageBox = styled.div`
   height: ${px2vw(250)};
   img {
+    height: 100% ;
     width: 100%;
   }
 

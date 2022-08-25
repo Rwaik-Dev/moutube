@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container, Prices, ImageBox } from "./CardGames.styles";
 
 interface IPropsCardGames{
@@ -7,11 +8,13 @@ interface IPropsCardGames{
     discount: number,
     lastPrice: string,
     currentPrice: string
+    slugGame: string,
 }
 
-const CardGames: React.FC<IPropsCardGames> = ({urlImage, gameName, discount, lastPrice, currentPrice}) => {
+const CardGames: React.FC<IPropsCardGames> = ({urlImage, gameName, discount, lastPrice, currentPrice, slugGame}) => {
   return (
     <Container>
+      <Link to={`detail-game/`+slugGame} key={slugGame}>
       <ImageBox>
         <img
           src={urlImage}
@@ -30,6 +33,7 @@ const CardGames: React.FC<IPropsCardGames> = ({urlImage, gameName, discount, las
           R${currentPrice}
         </p>
       </Prices>
+      </Link>
     </Container>
   );
 };
