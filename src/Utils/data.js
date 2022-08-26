@@ -1152,8 +1152,8 @@ let games = [
     },
   },
   {
-    gameId: "Far Cry® 6",
-    gameName: "far-cry-6",
+    gameId: "far-cry-6",
+    gameName: "Far Cry® 6",
     desenvolvedor: "Ubisoft Toronto",
     editora: "Ubisoft",
     dataLancamento: "07/10/21",

@@ -19,8 +19,8 @@ export const Container = styled.div`
   }
 
   .imageCard {
-    width: ${px2vw(100)};
-    height: ${px2vw(90)};
+    width: ${px2vw(80)};
+    height: ${px2vw(70)};
     background: none;
   }
   .gameName {
@@ -28,7 +28,7 @@ export const Container = styled.div`
     height: auto;
     padding: ${px2vw(10)};
     background: none;
-    font-size: ${px2vw(30)};
+    font-size: ${px2vw(25)};
   }
 
   /* Responsividade */
