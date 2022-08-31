@@ -22,7 +22,7 @@ const Requirements: React.FC<IRequirementsProps> = ({
 }) => {
   return (
     <Container>
-      <h5 className="title">{title}</h5>
+      <h5>{title}</h5>
       <div className="divider">
         <p className="title">Sistema Operacional</p>
         <p className="name">{So}</p>

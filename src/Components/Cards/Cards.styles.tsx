@@ -18,6 +18,17 @@ export const Container = styled.div`
     box-shadow: ${px2vw(5)} ${px2vw(5)} ${px2vw(10)} #017152;
   }
 
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: none;
+    text-decoration: none;
+    width: 100% ;
+    height: 100% ;
+  }
+
   .imageCard {
     width: ${px2vw(80)};
     height: ${px2vw(70)};
