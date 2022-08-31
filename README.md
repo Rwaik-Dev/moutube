@@ -9,4 +9,4 @@ Esta e a versão 1 do projeto, mais atualizações estão por vim.
 ### `Contatos e Midias Sociais:`
 LinkedIn : [Wilker Rwaik Eloi](https://www.linkedin.com/in/wilker-rwaik-eloi-91b2621a0/)\
 Instagram: [Rwaik](https://www.instagram.com/wilkerr/)\
-WhatsApp: [Wilker](https://wa.me/5531992468296?text=Oi+Wilker)\
+WhatsApp: [Wilker](https://wa.me/5531992468296?text=Oi+Wilker)
