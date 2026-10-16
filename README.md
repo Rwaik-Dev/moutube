@@ -82,18 +82,32 @@ VITE_RAWG_API_KEY=sua_chave_aqui
 ```bash
 npm run dev       # http://localhost:5173
 npm run build     # build de produção
-npm run preview   # servir o build (com proxy RAWG)
+npm run preview   # servir o build
 ```
 
-### Proxy da API
+### Como a RAWG é consumida
 
-Em desenvolvimento (e no `preview`), o Vite encaminha `/api/rawg/*` para `https://api.rawg.io/api/*` e injeta a chave. Isso evita CORS e mantém a key fora do path do browser durante o proxy.
+O front chama `https://api.rawg.io/api/...` direto no browser, usando `VITE_RAWG_API_KEY`.  
+(Vite embute variáveis `VITE_*` no bundle — ok para chave gratuita de portfolio.)
+
+> Se você testar `/api/rawg` no browser e ver **404 The page could not be found**, isso é a função serverless opcional. O app **não depende** dela.
+
+### Deploy na Vercel (obrigatório para os jogos aparecerem)
+
+1. Push do código
+2. Vercel → **Settings → Environment Variables**:
+   - Name: `VITE_RAWG_API_KEY` ← o prefixo `VITE_` é obrigatório
+   - Value: sua chave RAWG
+   - Environments: Production, Preview, Development
+3. **Redeploy** depois de salvar a variável (Deployments → ⋮ → Redeploy)  
+   Sem rebuild, a chave antiga (ou vazia) continua no JS.
 
 ## Limitações (v2)
 
 - CTAs de compra / carrinho / wishlist são **mock** (toast apenas)
-- Em deploy **estático puro** (GitHub Pages etc.), a variável `VITE_*` entra no bundle — aceitável para portfolio com key gratuita; para produção real use um backend/proxy
 - Rate limits da RAWG se aplicam
+- A chave `VITE_RAWG_API_KEY` fica visível no bundle do browser (aceitável para portfolio)
+
 
 ## Design
 
