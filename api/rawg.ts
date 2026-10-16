@@ -1,8 +1,9 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
 /**
- * Serverless proxy for RAWG on Vercel.
- * Locally, Vite's server.proxy handles /api/rawg the same way.
+ * RAWG proxy for Vercel (Vite SPA).
+ * Catch-all [...path] is NOT supported outside Next.js, so vercel.json
+ * rewrites /api/rawg/:path* → /api/rawg?__path=:path*
  */
 export default async function handler(
   req: VercelRequest,
@@ -21,18 +22,21 @@ export default async function handler(
     })
   }
 
-  const pathParam = req.query.path
-  const segments = Array.isArray(pathParam)
-    ? pathParam
-    : pathParam
-      ? [pathParam]
-      : []
-  const resourcePath = segments.map(encodeURIComponent).join('/')
+  const pathValue = req.query.__path
+  const resourcePath = Array.isArray(pathValue)
+    ? pathValue.join('/')
+    : (pathValue ?? '')
+
+  if (!resourcePath) {
+    return res.status(400).json({
+      error: 'Missing path. Use /api/rawg/<resource> (e.g. /api/rawg/games).',
+    })
+  }
 
   const upstream = new URL(`https://api.rawg.io/api/${resourcePath}`)
 
   for (const [key, value] of Object.entries(req.query)) {
-    if (key === 'path' || value === undefined) continue
+    if (key === '__path' || value === undefined) continue
     if (Array.isArray(value)) {
       for (const item of value) {
         if (item !== undefined) upstream.searchParams.append(key, item)

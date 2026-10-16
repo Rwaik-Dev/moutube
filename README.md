@@ -88,7 +88,7 @@ npm run preview   # servir o build (com proxy RAWG)
 ### Proxy da API
 
 - **Local:** o Vite encaminha `/api/rawg/*` → `https://api.rawg.io/api/*` e injeta a chave
-- **Vercel:** a função serverless em [`api/rawg/[...path].ts`](api/rawg/[...path].ts) faz o mesmo (o proxy do Vite **não existe** no deploy)
+- **Vercel:** a função serverless em [`api/rawg.ts`](api/rawg.ts) + rewrite em `vercel.json` fazem o mesmo (o proxy do Vite **não existe** no deploy; catch-all `[...path]` não funciona fora do Next.js)
 
 ### Deploy na Vercel
 
