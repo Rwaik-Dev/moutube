@@ -1,0 +1,112 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-display);
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* MouTube brand — dark store evolved from v1 (#191E29 / #01C38D / #132D47) */
+:root,
+.dark {
+  --background: #191e29;
+  --foreground: #f4f7fb;
+  --card: #132d47;
+  --card-foreground: #f4f7fb;
+  --popover: #132d47;
+  --popover-foreground: #f4f7fb;
+  --primary: #01c38d;
+  --primary-foreground: #061510;
+  --secondary: #1c3a58;
+  --secondary-foreground: #f4f7fb;
+  --muted: #24384f;
+  --muted-foreground: #9fb0c3;
+  --accent: #1c3a58;
+  --accent-foreground: #f4f7fb;
+  --destructive: #ef4444;
+  --border: rgb(255 255 255 / 10%);
+  --input: rgb(255 255 255 / 14%);
+  --ring: #01c38d;
+  --chart-1: #01c38d;
+  --chart-2: #3dd6a8;
+  --chart-3: #9fb0c3;
+  --chart-4: #132d47;
+  --chart-5: #24384f;
+  --radius: 0.75rem;
+  --sidebar: #132d47;
+  --sidebar-foreground: #f4f7fb;
+  --sidebar-primary: #01c38d;
+  --sidebar-primary-foreground: #061510;
+  --sidebar-accent: #1c3a58;
+  --sidebar-accent-foreground: #f4f7fb;
+  --sidebar-border: rgb(255 255 255 / 10%);
+  --sidebar-ring: #01c38d;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased min-h-dvh;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgb(1 195 141 / 18%), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgb(19 45 71 / 80%), transparent);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+}
