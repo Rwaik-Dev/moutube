@@ -74,7 +74,7 @@ cp .env.example .env
 Edite `.env` e coloque sua chave:
 
 ```env
-RAWG_API_KEY=sua_chave_aqui
+VITE_RAWG_API_KEY=sua_chave_aqui
 ```
 
 ### Scripts
@@ -82,30 +82,31 @@ RAWG_API_KEY=sua_chave_aqui
 ```bash
 npm run dev       # http://localhost:5173
 npm run build     # build de produção
-npm run preview   # servir o build (com proxy RAWG)
+npm run preview   # servir o build
 ```
 
-### Proxy da API
+### Como a RAWG é consumida
 
-- **Local:** o Vite encaminha `/api/rawg/*` → `https://api.rawg.io/api/*` e injeta a chave
-- **Vercel:** a função serverless em [`api/rawg.ts`](api/rawg.ts) faz o mesmo via `GET /api/rawg?path=games&...` (o proxy do Vite **não existe** no deploy)
+O front chama `https://api.rawg.io/api/...` direto no browser, usando `VITE_RAWG_API_KEY`.  
+(Vite embute variáveis `VITE_*` no bundle — ok para chave gratuita de portfolio.)
 
-### Deploy na Vercel
+> Se você testar `/api/rawg` no browser e ver **404 The page could not be found**, isso é a função serverless opcional. O app **não depende** dela.
 
-1. Faça push deste código (com a pasta `api/`)
-2. No projeto Vercel → **Settings → Environment Variables**, adicione:
-   - Name: `RAWG_API_KEY`
-   - Value: sua chave da RAWG
+### Deploy na Vercel (obrigatório para os jogos aparecerem)
+
+1. Push do código
+2. Vercel → **Settings → Environment Variables**:
+   - Name: `VITE_RAWG_API_KEY` ← o prefixo `VITE_` é obrigatório
+   - Value: sua chave RAWG
    - Environments: Production, Preview, Development
-3. **Redeploy** (Deployments → ⋮ → Redeploy), para a env var valer
-
-Sem essa variável (ou só com `VITE_*` no build sem a função `api/`), `/api/rawg` retorna 404/500 e os jogos não carregam.
+3. **Redeploy** depois de salvar a variável (Deployments → ⋮ → Redeploy)  
+   Sem rebuild, a chave antiga (ou vazia) continua no JS.
 
 ## Limitações (v2)
 
 - CTAs de compra / carrinho / wishlist são **mock** (toast apenas)
 - Rate limits da RAWG se aplicam
-- Em hospedagens sem serverless (ex.: GitHub Pages puro), o proxy `/api/rawg` não funciona — use Vercel/Netlify ou um backend
+- A chave `VITE_RAWG_API_KEY` fica visível no bundle do browser (aceitável para portfolio)
 
 
 ## Design

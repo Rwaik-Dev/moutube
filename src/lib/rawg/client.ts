@@ -1,4 +1,4 @@
-const BASE_URL = '/api/rawg'
+const RAWG_API_BASE = 'https://api.rawg.io/api'
 
 export class RawgError extends Error {
   status: number
@@ -10,12 +10,29 @@ export class RawgError extends Error {
   }
 }
 
+/**
+ * Calls RAWG directly from the browser.
+ * Requires VITE_RAWG_API_KEY (local .env and Vercel Environment Variables).
+ *
+ * Note: Vite inlines VITE_* into the client bundle — fine for a free RAWG portfolio key.
+ * The /api/rawg serverless proxy remains available as an optional server-side alternative.
+ */
 export async function rawgFetch<T>(
   path: string,
   params?: Record<string, string | number | undefined>,
 ): Promise<T> {
-  const url = new URL(BASE_URL, window.location.origin)
-  url.searchParams.set('path', path.replace(/^\/+/, ''))
+  const apiKey = import.meta.env.VITE_RAWG_API_KEY as string | undefined
+
+  if (!apiKey) {
+    throw new RawgError(
+      'VITE_RAWG_API_KEY is missing. Set it in .env (local) or Vercel Environment Variables, then redeploy.',
+      500,
+    )
+  }
+
+  const url = new URL(
+    `${RAWG_API_BASE}/${path.replace(/^\/+/, '')}`,
+  )
 
   if (params) {
     for (const [key, value] of Object.entries(params)) {
@@ -24,6 +41,8 @@ export async function rawgFetch<T>(
       }
     }
   }
+
+  url.searchParams.set('key', apiKey)
 
   const response = await fetch(url.toString())
 

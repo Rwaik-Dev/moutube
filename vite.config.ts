@@ -2,40 +2,16 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-import { defineConfig, loadEnv, type ProxyOptions } from 'vite'
+import { defineConfig } from 'vite'
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url))
 
-function rawgProxy(apiKey: string): ProxyOptions {
-  return {
-    target: 'https://api.rawg.io/api',
-    changeOrigin: true,
-    rewrite: (requestPath) => {
-      const url = new URL(requestPath, 'http://localhost')
-      const resource = (url.searchParams.get('path') ?? '').replace(/^\/+/, '')
-      url.searchParams.delete('path')
-      url.searchParams.set('key', apiKey)
-      return `/${resource}${url.search}`
-    },
-  }
-}
-
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '')
-  const apiKey = env.RAWG_API_KEY || env.VITE_RAWG_API_KEY || ''
-  const proxy = {
-    '/api/rawg': rawgProxy(apiKey),
-  }
-
-  return {
-    plugins: [react(), tailwindcss()],
-    resolve: {
-      alias: {
-        '@': path.resolve(rootDir, './src'),
-      },
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      '@': path.resolve(rootDir, './src'),
     },
-    server: { proxy },
-    preview: { proxy },
-  }
+  },
 })
