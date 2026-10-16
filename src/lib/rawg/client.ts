@@ -14,7 +14,8 @@ export async function rawgFetch<T>(
   path: string,
   params?: Record<string, string | number | undefined>,
 ): Promise<T> {
-  const url = new URL(`${BASE_URL}${path}`, window.location.origin)
+  const url = new URL(BASE_URL, window.location.origin)
+  url.searchParams.set('path', path.replace(/^\/+/, ''))
 
   if (params) {
     for (const [key, value] of Object.entries(params)) {

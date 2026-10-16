@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/api/rawg/:path*",
-      "destination": "/api/rawg?__path=:path*"
-    },
-    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }

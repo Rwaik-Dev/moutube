@@ -10,11 +10,12 @@ function rawgProxy(apiKey: string): ProxyOptions {
   return {
     target: 'https://api.rawg.io/api',
     changeOrigin: true,
-    rewrite: (p) => {
-      const url = new URL(p, 'http://localhost')
-      const pathname = url.pathname.replace(/^\/api\/rawg/, '') || '/'
+    rewrite: (requestPath) => {
+      const url = new URL(requestPath, 'http://localhost')
+      const resource = (url.searchParams.get('path') ?? '').replace(/^\/+/, '')
+      url.searchParams.delete('path')
       url.searchParams.set('key', apiKey)
-      return `${pathname}${url.search}`
+      return `/${resource}${url.search}`
     },
   }
 }
@@ -38,5 +39,3 @@ export default defineConfig(({ mode }) => {
     preview: { proxy },
   }
 })
-
-
