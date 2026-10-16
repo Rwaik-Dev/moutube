@@ -74,7 +74,7 @@ cp .env.example .env
 Edite `.env` e coloque sua chave:
 
 ```env
-VITE_RAWG_API_KEY=sua_chave_aqui
+RAWG_API_KEY=sua_chave_aqui
 ```
 
 ### Scripts
@@ -87,13 +87,26 @@ npm run preview   # servir o build (com proxy RAWG)
 
 ### Proxy da API
 
-Em desenvolvimento (e no `preview`), o Vite encaminha `/api/rawg/*` para `https://api.rawg.io/api/*` e injeta a chave. Isso evita CORS e mantém a key fora do path do browser durante o proxy.
+- **Local:** o Vite encaminha `/api/rawg/*` → `https://api.rawg.io/api/*` e injeta a chave
+- **Vercel:** a função serverless em [`api/rawg/[...path].ts`](api/rawg/[...path].ts) faz o mesmo (o proxy do Vite **não existe** no deploy)
+
+### Deploy na Vercel
+
+1. Faça push deste código (com a pasta `api/`)
+2. No projeto Vercel → **Settings → Environment Variables**, adicione:
+   - Name: `RAWG_API_KEY`
+   - Value: sua chave da RAWG
+   - Environments: Production, Preview, Development
+3. **Redeploy** (Deployments → ⋮ → Redeploy), para a env var valer
+
+Sem essa variável (ou só com `VITE_*` no build sem a função `api/`), `/api/rawg` retorna 404/500 e os jogos não carregam.
 
 ## Limitações (v2)
 
 - CTAs de compra / carrinho / wishlist são **mock** (toast apenas)
-- Em deploy **estático puro** (GitHub Pages etc.), a variável `VITE_*` entra no bundle — aceitável para portfolio com key gratuita; para produção real use um backend/proxy
 - Rate limits da RAWG se aplicam
+- Em hospedagens sem serverless (ex.: GitHub Pages puro), o proxy `/api/rawg` não funciona — use Vercel/Netlify ou um backend
+
 
 ## Design
 

@@ -22,8 +22,9 @@ function rawgProxy(apiKey: string): ProxyOptions {
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
+  const apiKey = env.RAWG_API_KEY || env.VITE_RAWG_API_KEY || ''
   const proxy = {
-    '/api/rawg': rawgProxy(env.VITE_RAWG_API_KEY ?? ''),
+    '/api/rawg': rawgProxy(apiKey),
   }
 
   return {
